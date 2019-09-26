@@ -27,12 +27,12 @@
 #### （4）ContentLayout发起removeEcharts action，删除当前操作的echart，并将当前的payload变为{ key: null, option: Map()}，默认为全局配置。  
 #### （5）RSiderNavi发起updateEcharts action，修改当前操作的echart的数据，并更新payload。  
 ## 3.ReactScreenLayout
-由两种ReactScreenItem组成：placeholder和图表组件。
-placeholder为待放置的位置，图表组件因为设置了transition，总是显示为placeholder先放置，然后图表组件过渡到那个placeholder的位置。
-ReactScreenLayout会遍历每个图表，根据他们在layout中对应的几何信息，计算出样式，然后应用之。
++ 由两种ReactScreenItem组成：placeholder和图表组件。
++ placeholder为待放置的位置，图表组件因为设置了transition，总是显示为placeholder先放置，然后图表组件过渡到那个placeholder的位置。
++ ReactScreenLayout会遍历每个图表，根据他们在layout中对应的几何信息，计算出样式，然后应用之。
 ### Drag
-Drag监听.react-resizble-handle，如果发生resizable事件，则不触发drag
-将Drag分为三个阶段onDragStart,onDrag和onDragStop，通过dragging记录这三个阶段的位置信息， 这些位置信息始终相对于ReactScreenLayout（因为预览和最终的部分都是这个ReactScreenLayout）。每次子节点发生Drag，都会将几何信息反馈给ReactScreenLayout的layout，并记录activeDrag用于palceholder放置。
++ Drag监听.react-resizble-handle，如果发生resizable事件，则不触发drag
++ 将Drag分为三个阶段onDragStart,onDrag和onDragStop，通过dragging记录这三个阶段的位置信息， 这些位置信息始终相对于ReactScreenLayout（因为预览和最终的部分都是这个ReactScreenLayout）。每次子节点发生Drag，都会将几何信息反馈给ReactScreenLayout的layout，并记录activeDrag用于palceholder放置。
 #### onDragStart:
 ```
 const { offsetParent } = node;
